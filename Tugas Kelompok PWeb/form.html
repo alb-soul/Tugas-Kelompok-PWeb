@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><!--CSS di head, javascript dibawah body-->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Cerdas Sign-up</title>
@@ -139,6 +139,22 @@
 			color: greenyellow;
 			text-decoration: none;
 		}
+
+		#message {
+			font-size: 14px;
+			display: none;
+			border: 1px solid rgba(237, 237, 241, 0.5);
+			padding: 15px;
+			border-radius: 5%;
+		}
+
+		.valid {
+			color: rgb(5, 185, 5);
+		}
+
+		.invalid {
+			color: rgb(223, 32, 32);
+		}
 	</style>
 
 </head>
@@ -160,18 +176,26 @@
 		<br>
 		<div class="box-daftar">
 			<h2 style="color: white;">Sign Up for Free!</h2>
-			<form action="target.php" method="POST">
+			<form action="target.php" name="daftar" method="POST" onsubmit="return validasiForm()"> <!--Cek apakah input form kosong atau telah diisi-->
 				<label for="name">Nama :</label><br>
 				<input type="text" name="name" placeholder="Your name"><br>
 				<label for="username">Username :</label><br>
-				<input type="text" name="username" placeholder="Username"><br>
+				<input type="text" name="username" placeholder="Username" pattern=".{4,}" title="Username harus terdiri minimal 4 karakter"><br>
 				<label for="email">Email :</label><br>
-				<input type="email" name="email" placeholder="Email"><br>
+				<input type="email" id="email" name="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"><br>
 				<label for="password">Password :</label><br>
-				<input type="password" name="password" placeholder="Password"><br>
+				<input type="password" id="pwd" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"><br>
+				<div id="message">
+					<h4>Password must contain the following:</h4>
+					<p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+					<p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+					<p id="number" class="invalid">A <b>number</b></p>
+					<p id="length" class="invalid">Minimum <b>8 characters</b></p>
+				</div>
+				<br>
 				<label for="provinsi">Provinsi :</label><br />
 				<select name="provinsi">
-					<option value="#">Select country</option>
+					<option value="">Select country</option>
 					<option value="banten">Banten</option>
 					<option value="jakarta">DKI Jakarta</option>
 					<option value="jabar">Jawa Barat</option>
@@ -192,4 +216,71 @@
 		<span class="bawah">Copyright 2022 - Cerdas.com</span>
 	</footer>
 </body>
+<script>
+	var myInputpw = document.getElementById("pwd");
+	var letter = document.getElementById("letter");
+	var capital = document.getElementById("capital");
+	var number = document.getElementById("number");
+	var length = document.getElementById("length");
+
+	myInputpw.onfocus = function() {
+		document.getElementById("message").style.display = "block";
+	}
+	myInputpw.onblur = function() {
+		document.getElementById("message").style.display = "none";
+	}
+	//Validasi huruf kecil
+	myInputpw.onkeyup = function() {
+		var lowerCaseLetters = /[a-z]/g;
+		if(myInputpw.value.match(lowerCaseLetters)) {  
+			letter.classList.remove("invalid");
+			letter.classList.add("valid");
+		} 
+		else {
+			letter.classList.remove("valid");
+			letter.classList.add("invalid");
+		}
+		//Validasi huruf besar
+		var upperCaseLetters = /[A-Z]/g;
+		if(myInputpw.value.match(upperCaseLetters)) {
+			capital.classList.remove("invalid");
+			capital.classList.add("valid");
+		}
+		else {
+			capital.classList.remove("valid");
+			capital.classList.add("invalid");
+		}
+		//Validasi angka
+		var numbers = /[0-9]/g;
+		if(myInputpw.value.match(numbers)) {
+			number.classList.remove("invalid");
+			number.classList.add("valid");
+		}
+		else {
+			number.classList.remove("valid");
+			number.classList.add("invalid");
+		}
+		//Validasi pjg pw
+		if(myInputpw.value.length >= 8) {
+			length.classList.remove("invalid");
+			length.classList.add("valid");
+		}
+		else {
+			length.classList.remove("valid");
+			length.classList.add("invalid");
+		}
+	}
+	//Validasi form input
+	function validasiForm() {
+		var kolom_nama = document.forms["daftar"]["name"].value;
+		var kolom_usrm = document.forms["daftar"]["username"].value;
+		var kolom_email = document.forms["daftar"]["email"].value;
+		var kolom_pwd = document.forms["daftar"]["password"].value;
+		var kolom_prov = document.forms["daftar"]["provinsi"].value;
+		if (kolom_nama=="" || kolom_usrm=="" || kolom_email=="" || kolom_pwd=="" || kolom_prov=="") {
+			alert("Kolom input harus diisi semua!");
+			return false;
+		}
+	}
+</script>
 </html>
