@@ -1,286 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><!--CSS di head, javascript dibawah body-->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Cerdas Sign-up</title>
-	<style>
-		* {
-			border: 0px solid red;
-		}
-		@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
-		body {
-			margin: 0px;
-			min-width: 320px;
-		}
-		header {
-			width: 100%;
-			height: 178px;
-			background-color: rgba(24,26,27,255);
-			text-align: center;
-			display: flex;
-        	flex-direction: column;
-        	justify-content: center;
-        	align-items: center; /* To center align it horizontally as well*/
-			border-bottom: 1px solid rgba(237, 237, 241, 0.2);
-		}
+  <head>
+    <!--CSS di head, javascript dibawah body-->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cerdas Sign-up</title>
+    <style>
+      * {
+        border: 0px solid red;
+      }
+      @import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+      body {
+        margin: 0px;
+        min-width: 320px;
+      }
+      header {
+        width: 100%;
+        height: 178px;
+        background-color: rgba(24, 26, 27, 255);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; /* To center align it horizontally as well*/
+        border-bottom: 1px solid rgba(237, 237, 241, 0.2);
+      }
 
-		header span.judul {
-			font-family: monospace;
-			font-size: 26px;
-			font-weight: bolder;
-			color: white;
-		}
+      header span.judul {
+        font-family: monospace;
+        font-size: 26px;
+        font-weight: bolder;
+        color: white;
+      }
 
-		header span.subjudul {
-			color: white;
-			font-size: 18px;
-		}
+      header span.subjudul {
+        color: white;
+        font-size: 18px;
+      }
 
-		main {
-			padding-top: 1px;
-			background-color: #222527;
-		}
-		.box-daftar input,select {
-			width: 100%;
-			border-radius: 8px;
-			margin-top: 5px;
-			margin-bottom: 15px;
-			padding: 12px 20px;
-			border: 1px solid rgba(237, 237, 241, 0.5);
-			box-sizing: border-box;
-			background-color: rgba(24,26,27,255);
-			color: white;
-		}
+      main {
+        padding-top: 1px;
+        background-color: #222527;
+      }
+      .box-daftar input,
+      select {
+        width: 100%;
+        border-radius: 8px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        padding: 12px 20px;
+        border: 1px solid rgba(237, 237, 241, 0.5);
+        box-sizing: border-box;
+        background-color: rgba(24, 26, 27, 255);
+        color: white;
+      }
 
-		div.box-daftar {
-			display: flex;
-        	flex-direction: column;
-        	justify-content: center;
-        	align-items: center; /* To center align it horizontally as well*/
-			color: white;
-			width: 100%;
-			border-top: 1px solid rgba(242, 242, 250, 0.2);
-			padding: 25px 0px
-			
-		}
+      div.box-daftar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; /* To center align it horizontally as well*/
+        color: white;
+        width: 100%;
+        border-top: 1px solid rgba(242, 242, 250, 0.2);
+        padding: 25px 0px;
+      }
 
-		.box-daftar label {
-			font-family: monospace;
-			font-size: 13.3px;
-		}
-		
-		.box-daftar input[type=submit] {
-			background-color: #4CAF50;
-			color: white;
-			width: 13em;
-			margin-top: 12px;
-		}
+      .box-daftar label {
+        font-family: monospace;
+        font-size: 13.3px;
+      }
 
-		.box-daftar form {
-			width: 300px;
-		}
+      .box-daftar input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        width: 13em;
+        margin-top: 12px;
+      }
 
-		.box-daftar input[type=submit]:hover {
-			background-color: #45a049;
-			cursor: pointer;
-		}
+      .box-daftar form {
+        width: 300px;
+      }
 
-		.box-daftar div.submit {
-			display: flex;
-        	flex-direction: column;
-        	justify-content: center;
-        	align-items: center; /* To center align it horizontally as well*/
-			line-height: normal;
-			margin-top: 15px;
-			margin-bottom: 15px;
-		}
+      .box-daftar input[type="submit"]:hover {
+        background-color: #45a049;
+        cursor: pointer;
+      }
 
-		footer {
-			width: 100%;
-			height: 100px;
-			background-color: rgba(24,26,27,255);
-			display: flex;
-        	flex-direction: column;
-        	justify-content: center;
-        	align-items: center; /* To center align it horizontally as well*/
-		}
+      .box-daftar div.submit {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; /* To center align it horizontally as well*/
+        line-height: normal;
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
 
-		span.bawah {
-			font-size: 14px;
-			font-family: monospace;
-			font-weight: bold;
-			color: white;
-		}
+      footer {
+        width: 100%;
+        height: 100px;
+        background-color: rgba(24, 26, 27, 255);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; /* To center align it horizontally as well*/
+      }
 
-		div.nav {
-			padding-bottom: 15px;
-		}
+      span.bawah {
+        font-size: 14px;
+        font-family: monospace;
+        font-weight: bold;
+        color: white;
+      }
 
-		nav.navigasi ul li {
-			float: left;
-			list-style: none;
-			font-size: 18px;
-			color: white;
-			margin-right: 25px;
-		}
+      div.nav {
+        padding-bottom: 15px;
+      }
 
-		nav.navigasi ul li a {
-			color: white;
-			text-decoration: none;
-		}
+      nav.navigasi ul li {
+        float: left;
+        list-style: none;
+        font-size: 18px;
+        color: white;
+        margin-right: 25px;
+      }
 
-		nav.navigasi ul li:hover {
-			font-weight: bolder;
-			cursor: pointer;
-		}
+      nav.navigasi ul li a {
+        color: white;
+        text-decoration: none;
+      }
 
-		a.to-login {
-			color: greenyellow;
-			text-decoration: none;
-		}
+      nav.navigasi ul li:hover {
+        font-weight: bolder;
+        cursor: pointer;
+      }
 
-		#message {
-			font-size: 14px;
-			display: none;
-			border: 1px solid rgba(237, 237, 241, 0.5);
-			padding: 15px;
-			border-radius: 5%;
-		}
+      a.to-login {
+        color: greenyellow;
+        text-decoration: none;
+      }
 
-		.valid {
-			color: rgb(5, 185, 5);
-		}
+      #message {
+        font-size: 14px;
+        display: none;
+        border: 1px solid rgba(237, 237, 241, 0.5);
+        padding: 15px;
+        border-radius: 5%;
+      }
 
-		.invalid {
-			color: rgb(223, 32, 32);
-		}
-	</style>
+      .valid {
+        color: rgb(5, 185, 5);
+      }
 
-</head>
-<body>
-	<header>	
-			<span class="judul">>_ Cerdas.com</span><br>
-			<span class="subjudul">Join with us!</span>
-	</header>
-	<main>
-		<div class="nav">
-			<nav class="navigasi">
-				<ul>
-					<li><a href="home.html">Home</a></li>
-					<li><a href="form2.html">Sign in</a></li>
-					<li><a href="about.html">About Us</a></li>
-				</ul>
-			</nav>
-		</div>
-		<br>
-		<div class="box-daftar">
-			<h2 style="color: white;">Sign Up for Free!</h2>
-			<form action="target.php" name="daftar" method="POST" onsubmit="return validasiForm()"> <!--Cek apakah input form kosong atau telah diisi-->
-				<label for="name">Nama :</label><br>
-				<input type="text" name="name" placeholder="Your name"><br>
-				<label for="username">Username :</label><br>
-				<input type="text" name="username" placeholder="Username" pattern=".{4,}" title="Username harus terdiri minimal 4 karakter"><br>
-				<label for="email">Email :</label><br>
-				<input type="email" id="email" name="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"><br>
-				<label for="password">Password :</label><br>
-				<input type="password" id="pwd" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"><br>
-				<div id="message">
-					<h4>Password must contain the following:</h4>
-					<p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-					<p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-					<p id="number" class="invalid">A <b>number</b></p>
-					<p id="length" class="invalid">Minimum <b>8 characters</b></p>
-				</div>
-				<br>
-				<label for="provinsi">Provinsi :</label><br />
-				<select name="provinsi">
-					<option value="">Select country</option>
-					<option value="banten">Banten</option>
-					<option value="jakarta">DKI Jakarta</option>
-					<option value="jabar">Jawa Barat</option>
-					<option value="jateng">Jawa Tengah</option>
-					<option value="jogja">DI Yogyakarta</option>
-					<option value="jatim">Jawa Timur</option>
-					<option value="jatim">Kalimantan Selatan</option>
-					<option value="jatim">Kalimantan Timur</option>
-				</select><br />
-				<p>Already have account? Go to <a class="to-login" href="form2.html">Sign-in</a> page</p>
-				<div class="submit">
-					<input type="submit" value="Submit"> 
-				</div>
-			</form>
-		</div>
-	</main>
-	<footer>
-		<span class="bawah">Copyright 2022 - Cerdas.com</span>
-	</footer>
-</body>
-<script>
-	var myInputpw = document.getElementById("pwd");
-	var letter = document.getElementById("letter");
-	var capital = document.getElementById("capital");
-	var number = document.getElementById("number");
-	var length = document.getElementById("length");
-
-	myInputpw.onfocus = function() {
-		document.getElementById("message").style.display = "block";
-	}
-	myInputpw.onblur = function() {
-		document.getElementById("message").style.display = "none";
-	}
-	//Validasi huruf kecil
-	myInputpw.onkeyup = function() {
-		var lowerCaseLetters = /[a-z]/g;
-		if(myInputpw.value.match(lowerCaseLetters)) {  
-			letter.classList.remove("invalid");
-			letter.classList.add("valid");
-		} 
-		else {
-			letter.classList.remove("valid");
-			letter.classList.add("invalid");
-		}
-		//Validasi huruf besar
-		var upperCaseLetters = /[A-Z]/g;
-		if(myInputpw.value.match(upperCaseLetters)) {
-			capital.classList.remove("invalid");
-			capital.classList.add("valid");
-		}
-		else {
-			capital.classList.remove("valid");
-			capital.classList.add("invalid");
-		}
-		//Validasi angka
-		var numbers = /[0-9]/g;
-		if(myInputpw.value.match(numbers)) {
-			number.classList.remove("invalid");
-			number.classList.add("valid");
-		}
-		else {
-			number.classList.remove("valid");
-			number.classList.add("invalid");
-		}
-		//Validasi pjg pw
-		if(myInputpw.value.length >= 8) {
-			length.classList.remove("invalid");
-			length.classList.add("valid");
-		}
-		else {
-			length.classList.remove("valid");
-			length.classList.add("invalid");
-		}
-	}
-	//Validasi form input
-	function validasiForm() {
-		var kolom_nama = document.forms["daftar"]["name"].value;
-		var kolom_usrm = document.forms["daftar"]["username"].value;
-		var kolom_email = document.forms["daftar"]["email"].value;
-		var kolom_pwd = document.forms["daftar"]["password"].value;
-		var kolom_prov = document.forms["daftar"]["provinsi"].value;
-		if (kolom_nama=="" || kolom_usrm=="" || kolom_email=="" || kolom_pwd=="" || kolom_prov=="") {
-			alert("Kolom input harus diisi semua!");
-			return false;
-		}
-	}
-</script>
+      .invalid {
+        color: rgb(223, 32, 32);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <span class="judul">>_ Cerdas.com</span><br />
+      <span class="subjudul">Join with us!</span>
+    </header>
+    <main>
+      <div class="nav">
+        <nav class="navigasi">
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="form2.html">Sign in</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </nav>
+      </div>
+      <br />
+      <div class="box-daftar">
+        <h2 style="color: white">Sign Up for Free!</h2>
+        <form name="daftar" onsubmit="validasiForm()">
+          <!--Cek apakah input form kosong atau telah diisi-->
+          <label for="name">Nama :</label><br />
+          <input type="text" name="name" placeholder="Your name" /><br />
+          <label for="username">Username :</label><br />
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            pattern=".{4,}"
+            title="Username harus terdiri minimal 4 karakter"
+          /><br />
+          <label for="email">Email :</label><br />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          /><br />
+          <label for="password">Password :</label><br />
+          <input
+            type="password"
+            id="pwd"
+            name="password"
+            placeholder="Password"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+          /><br />
+          <div id="message">
+            <h4>Password must contain the following:</h4>
+            <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+            <p id="capital" class="invalid">
+              A <b>capital (uppercase)</b> letter
+            </p>
+            <p id="number" class="invalid">A <b>number</b></p>
+            <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+          </div>
+          <br />
+          <label for="provinsi">Provinsi :</label><br />
+          <select name="provinsi">
+            <option value="">Select country</option>
+            <option value="banten">Banten</option>
+            <option value="jakarta">DKI Jakarta</option>
+            <option value="jabar">Jawa Barat</option>
+            <option value="jateng">Jawa Tengah</option>
+            <option value="jogja">DI Yogyakarta</option>
+            <option value="jatim">Jawa Timur</option>
+            <option value="jatim">Kalimantan Selatan</option>
+            <option value="jatim">Kalimantan Timur</option></select
+          ><br />
+          <p>
+            Already have account? Go to
+            <a class="to-login" href="form2.html">Sign-in</a> page
+          </p>
+          <div class="submit">
+            <input type="submit" value="Submit" />
+          </div>
+        </form>
+      </div>
+    </main>
+    <footer>
+      <span class="bawah">Copyright 2022 - Cerdas.com</span>
+    </footer>
+  </body>
+  <script src="userAut.js"></script>
 </html>
